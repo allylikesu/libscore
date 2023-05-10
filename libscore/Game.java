@@ -56,24 +56,29 @@ public class Game {
         return score;
     }
 
+    public Frame currentFrame() {
+        for(Frame f: frames) {
+            if(!frame.isComplete()) return f;
+        }
+    }
+    public Frame currentFrameIndex() {
+        for(int i = 0; i < frames.size(); i++) {
+            if(!frames.get(i).isComplete()) return i;
+        }
+    }
+
     public int getScoreAtFrame(int i ) {
         if(i < 0 || i > frames.size()) return 0;
         int score = 0;
         Frame thisFrame = frames.get(i);
         Frame nextFrame;
         Frame nextNextFrame;
+        if(!thisFrame.isComplete()) return -1;
 
         int nextPinfall = 0;
         int nextNextPinfall = 0;
         switch(i) {
             case 9: // get next throws from the rest of the 10th frame
-                /*if(thisFrame.isStrike()) {
-                    nextPinfall = thisFrame.pinfallSecond();
-                    nextNextPinfall = thisFrame.pinfallThird();
-                }
-                if(thisFrame.isSpare()) {
-                    nextPinfall = thisFrame.pinfallThird();
-                }*/
                 return thisFrame.totalPinfall() + getScoreAtFrame(i - 1);
             case 8: // get next throws from first 2 throws of tenth
                 nextFrame = frames.get(i + 1);
