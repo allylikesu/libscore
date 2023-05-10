@@ -23,96 +23,74 @@ This project has not yet been thouroughly tested, so there may be bugs. Please c
 
 ### Constructors
 
->> Frame()
->
+Frame()
 > Constructs a new (normal, not tenth) Frame.
 
->> Frame(boolean isTenth)
->
+Frame(boolean isTenth)
 > Constructs a new Frame in normal mode if `isTenth` is false, or tenth mode if `isTenth` is true.
 
 ### Methods
 
->> boolean isComplete()
->
+boolean isComplete()
 > Returns `true` if all nessecary shots have been populated.
 
->> boolean isStrike()
->
+boolean isStrike()
 > Returns `true` if this frame is a strike (pinfall of 10 on first ball).
 
->> boolean isSpare()
->
+boolean isSpare()
 > Returns `true` if this frame is a spare (combined pinfall of 10 over first and second ball) (does not take 3 ball of tenth frames into account).
 
->> boolean setNextBall(int i)
->
+boolean setNextBall(int i)
 > Attemps to set the next unoccupied ball to the value specified by `i`. Corrects `i` if it is over or under the possible limit.
 > If the ball is successfully set, returns `true`.
 
->> int totalPinfall()
->
+int totalPinfall()
 > Returns the total real pinfall of this frame. Will **NOT** count negative the pinfall amounts used to denote an untaken ball.
 
->> boolean isTenth()
->
+boolean isTenth()
 > Returns `true` if this frame is a tenth frame.
 
->> int pinfallFirst()
->
+int pinfallFirst()
 > Returns the pinfall amount of the first ball. If a pinfall amount is negative (used to denote an unused ball), will return 0.
 
->> int pinfallSecond()
->
+int pinfallSecond()
 > Returns the pinfall amount of the Second ball. If a pinfall amount is negative (used to denote an unused ball), will return 0.
 
->> int pinfallThird()
->
+int pinfallThird()
 > Returns the pinfall amount of the third ball. If a pinfall amount is negative (used to denote an unused ball), will return 0.
 > Will always return 0 if this frame is not a tenth frame.
 
->> boolean hasPinfallFirst()
->
+boolean hasPinfallFirst()
 > Returns `true` if the first ball has been taken.
 
->> boolean hasPinfallSecond()
->
+boolean hasPinfallSecond()
 > Returns `true` if the second ball has been taken.
 
->> boolean hasPinfallThird()
->
+boolean hasPinfallThird()
 > Returns `true` if the third ball has been taken.
 
->> int rawPinfallFirst()
->
+int rawPinfallFirst()
 > Same as `int pinfallFirst()`, but will not change negative values.
 
->> int rawPinfallSecond()
->
+int rawPinfallSecond()
 > Same as `int pinfallSecond()`, but will not change negative values.
 
->> int rawPinfallThird()
->
+int rawPinfallThird()
 > Same as `int pinfallThird()`, but will not change negative values.
 
->> void setIsTenth(boolean b)
->
+void setIsTenth(boolean b)
 > Sets whether this frame is a tenth frame. (true = tenth, false = normal)
 
->> void setPinfallFirst(int i)
->
+void setPinfallFirst(int i)
 > Sets pinfall for first ball. Will not correct impossible pinfall combinations.
 
->> void setPinfallSecond(int i)
->
+void setPinfallSecond(int i)
 > Sets pinfall for second ball. Will not correct impossible pinfall combinations.
 
->> void setPinfallThird(int i)
->
+void setPinfallThird(int i)
 > Sets pinfall for third ball. Will not correct impossible pinfall combinations.
 
->> String toString()
->
+String toString()
 > Returns a String in the format of: 
 > Normal frame: `Frame[pinfallFirst, pinfallSecond]`
 > Tenth frame: `Frame[pinfallFirst, pinfallSecond, pinfallThird]`
@@ -121,43 +99,34 @@ This project has not yet been thouroughly tested, so there may be bugs. Please c
 
 ### Constructor
 
->> Game()
->
+Game()
 > Constructs a new Game with 10 new Frames.
 
 ### Methods
 
->> boolean isComplete()
->
+ boolean isComplete()
 > Returns `true` if all frames in this game are complete.
 
->> boolean setNextBall(int i)
->
+boolean setNextBall(int i)
 > Attemps to set the next unoccupied ball of the next incomplete frame to the value specified by `i`. Corrects `i` if it is over or under the possible limit.
 > If the ball is successfully set, returns `true`.
 
->> int getTotalScore()
->
+int getTotalScore()
 > Returns this game's total score so far.
 > Includes the incomplete scores of recent closed frames.
 
->> Frame currentFrame()
->
+Frame currentFrame()
 > Returns the next unfinished Frame.
 
->> int currentFrameIndex()
->
+int currentFrameIndex()
 > Returns the index of the next unfinished Frame. Will be from 0-9.
 
->> int getScoreAtFrame(int i)
->
+int getScoreAtFrame(int i)
 > Returns the score as of the Frame at index `i` (0-9).
 > Will return 0 if i < 1 or i > 9.
 
->> ArrayList\<Frame\> getFrames()
->
+ArrayList\<Frame\> getFrames()
 > Returns the ArrayList of all 10 frames.
 
->> String toString()
->
+String toString()
 > Returns a String in the format of `Game[frame1.toString(),frame2.toString(),...]`
