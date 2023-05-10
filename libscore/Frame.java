@@ -81,6 +81,14 @@ public class Frame {
         return 0;
     }
 
+    public boolean hasPinfallFirst() { return pinfallFirst < 0; }
+    public boolean hasPinfallSecond() { return pinfallSecond < 0; }
+    public boolean hasPinfallThird() { return pinfallThird < 0; }
+
+    public int rawPinfallFirst() { return pinfallFirst; }
+    public int rawPinfallSecond() { return pinfallSecond; }
+    public int rawPinfallThird() { return pinfallThird; }
+
     public void setIsTenth(boolean b) {
         isTenth = b;
     }
