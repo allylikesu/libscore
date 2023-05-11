@@ -22,6 +22,13 @@ public class Game {
         return true;
     }
 
+    public boolean isEmpty() {
+    	for(Frame f: frames) {
+	    if(!f.isEmpty()) return false;
+	}
+	return true;
+    }
+
     public boolean setNextBall(int i) {
         Frame current = currentFrame();
         if(current == null) return false;

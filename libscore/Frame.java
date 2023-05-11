@@ -13,6 +13,10 @@ public class Frame {
         this.isTenth = isTenth;
         pinfallFirst = pinfallSecond = pinfallThird = -1;
     }
+
+    public boolean isEmpty() {
+    	return pinfallFirst<0 && pinfallSecond<0 && pinfallThird<0;
+    }
     
     public boolean isComplete() {
         if(pinfallFirst < 0) return false;
