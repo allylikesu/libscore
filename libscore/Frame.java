@@ -1,3 +1,5 @@
+package libscore;
+
 public class Frame {
     private boolean isTenth;
     private int pinfallFirst;
@@ -11,14 +13,18 @@ public class Frame {
         this.isTenth = isTenth;
         pinfallFirst = pinfallSecond = pinfallThird = -1;
     }
+
+    public boolean isEmpty() {
+    	return pinfallFirst<0 && pinfallSecond<0 && pinfallThird<0;
+    }
     
     public boolean isComplete() {
         if(pinfallFirst < 0) return false;
         if(pinfallFirst >= 10 && !isTenth) return true;
         if(pinfallSecond < 0) return false;
         if(isTenth) {
+	    if((isStrike() || isSpare()) && pinfallThird > -1) return true;
             if(totalPinfall() >= 10) return false;
-            //if(pinfallThird < 0) return true;
         }
         return true;
     }

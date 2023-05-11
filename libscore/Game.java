@@ -22,10 +22,17 @@ public class Game {
         return true;
     }
 
+    public boolean isEmpty() {
+    	for(Frame f: frames) {
+	    if(!f.isEmpty()) return false;
+	}
+	return true;
+    }
+
     public boolean setNextBall(int i) {
         Frame current = currentFrame();
-        if(f == null) return false;
-        return f.setNextBall(i);
+        if(current == null) return false;
+        return current.setNextBall(i);
     }
 
     public int getTotalScore() {
@@ -55,11 +62,11 @@ public class Game {
 
     public Frame currentFrame() {
         for(Frame f: frames) {
-            if(!frame.isComplete()) return f;
+            if(!f.isComplete()) return f;
         }
         return null;
     }
-    public Frame currentFrameIndex() {
+    public int currentFrameIndex() {
         for(int i = 0; i < frames.size(); i++) {
             if(!frames.get(i).isComplete()) return i;
         }
